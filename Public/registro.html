@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="registro.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="contenedor">
+    <h2>Escriba su nombre</h2>
+    <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre">
+
+    <h2>Escriba su email</h2>
+    <input type="email" id="email" name="email" placeholder="Ingrese su email">
+
+    <h2>Escriba su clave</h2>
+    <input type="password" id="clave" name="clave" placeholder="Ingrese su clave">
+
+    <input type="button" value="Registrar" id   ="registrar-btn">
+</div>
+    
+
+    <script>
+document.getElementById('registrar-btn').addEventListener('click', async () => {
+
+    const nombre = document.getElementById('nombre').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const clave = document.getElementById('clave').value.trim();
+
+    if (!nombre || !email || !clave) {
+        alert('Debe completar todos los campos');
+        return;
+    }
+
+    try {
+
+        const respuesta = await fetch('/api/registro', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                nombre,
+                email,
+                clave
+            })
+        });
+
+        const datos = await respuesta.json();
+
+        if (respuesta.ok) {
+            alert('Usuario registrado correctamente');
+
+            document.getElementById('nombre').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('clave').value = '';
+
+            // Opcional: volver al login
+            // window.location.href = 'index.html';
+        }
+        else {
+            alert(datos.error || 'Error al registrar usuario');
+        }
+
+    } catch (error) {
+        console.error(error);
+        alert('Error al conectar con el servidor');
+    }
+
+});
+</script>
+
+</body>
+</html>

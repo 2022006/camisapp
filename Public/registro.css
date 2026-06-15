@@ -1,0 +1,82 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#11998e,#38ef7d);
+}
+
+.contenedor{
+    background:white;
+    width:420px;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 15px 35px rgba(0,0,0,.2);
+}
+
+h1{
+    text-align:center;
+    color:#11998e;
+    margin-bottom:25px;
+}
+
+h2{
+    margin-top:15px;
+    margin-bottom:8px;
+    font-size:15px;
+    color:#444;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"]{
+    width:100%;
+    padding:12px;
+    border:2px solid #ddd;
+    border-radius:10px;
+    font-size:15px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus{
+    outline:none;
+    border-color:#11998e;
+}
+
+#registrar-btn{
+    width:100%;
+    margin-top:25px;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#11998e;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+#registrar-btn:hover{
+    background:#0b756d;
+    transform:translateY(-2px);
+}
+
+.link{
+    text-align:center;
+    margin-top:20px;
+}
+
+.link a{
+    text-decoration:none;
+    color:#11998e;
+    font-weight:bold;
+}

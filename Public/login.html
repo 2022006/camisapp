@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="contenedor">
+       <h1>Ingreso al sistema</h1>
+
+    <h2>Escriba su email</h2>
+    <input type="text" id="email" name="email" placeholder="Ingrese su email">
+
+
+    <h2>Escriba su clave</h2>
+    <input type="password" id="clave" name="clave" placeholder="Ingrese su clave">
+
+    <input type="button" value="Guardar" id="btn-Guardar">
+</div>
+ 
+
+
+    <script>
+document.getElementById('btn-Guardar').addEventListener('click', async () => {
+    const email = document.getElementById('email').value;
+    const clave = document.getElementById('clave').value;
+
+    if (!email || !clave) {
+        alert('Debe completar todos los campos');
+        return;
+    }
+
+    try {
+        const respuesta = await fetch('/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email,
+                clave
+            })
+        });
+
+        const datos = await respuesta.json();
+
+        if (respuesta.ok) {
+            alert('Inicio de sesión exitoso');
+
+            // Guardar token
+            localStorage.setItem('token', datos.token);
+
+            // Redirigir al sistema principal
+            window.location.href = 'index.html';
+        } else {
+            alert(datos.error);
+        }
+
+    } catch (error) {
+        console.error(error);
+        alert('Error al iniciar sesión');
+    }
+});
+</script>
+</body>
+</html>

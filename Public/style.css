@@ -1,0 +1,376 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --card2: #334155;
+  --primary: #06b6d4;
+  --secondary: #38bdf8;
+  --text: #f8fafc;
+  --muted: #94a3b8;
+  --border: #475569;
+  --red: #ef4444;
+  --green: #22c55e;
+  --orange: #f59e0b;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background:
+    radial-gradient(circle at top right,#164e63 0%,transparent 30%),
+    radial-gradient(circle at bottom left,#0f766e 0%,transparent 25%),
+    #020617;
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.hero {
+  background: transparent;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.hero h1{
+  font-size: 3rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.hero p{
+  color: var(--muted);
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(228, 225, 185, 0.12);
+  color: var(--stark);
+  border: 1px solid rgba(228, 225, 185, 0.35);
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.hero h1 {
+  font-size: clamp(28px, 4vw, 46px);
+  margin-bottom: 10px;
+  letter-spacing: -1px;
+}
+
+.hero p {
+  color: #e5e7eb;
+  font-size: 15px;
+}
+
+.contenedor {
+  width: 90%;
+  max-width: 1180px;
+  margin: 32px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.card{
+  background: rgba(30,41,59,.85);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 24px;
+  backdrop-filter: blur(12px);
+  box-shadow:
+    0 0 20px rgba(0,0,0,.3),
+    0 0 50px rgba(6,182,212,.1);
+}
+
+.section-title {
+  margin-bottom: 18px;
+}
+
+.section-title h2 {
+  font-size: 23px;
+  margin-bottom: 5px;
+}
+
+.section-title p {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+label {
+  font-weight: bold;
+  font-size: 13px;
+  color: var(--abbey);
+}
+
+input,
+textarea{
+  background:#0f172a;
+  border:1px solid var(--border);
+  color:white;
+}
+
+input::placeholder,
+textarea::placeholder{
+  color:#94a3b8;
+}
+
+textarea {
+  min-height: 78px;
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--bandicoot);
+  box-shadow: 0 0 0 4px rgba(223, 223, 22, 0.12);
+}
+
+input[type="color"] {
+  width: 62px;
+  height: 46px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+#parteActual {
+  padding: 12px 14px;
+  background: var(--soft);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  color: var(--abbey);
+  font-size: 14px;
+}
+
+button{
+  background: linear-gradient(
+      135deg,
+      var(--primary),
+      var(--secondary)
+  );
+
+  color:white;
+  font-weight:700;
+  border:none;
+  border-radius:14px;
+  transition:.3s;
+}
+
+button:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 25px rgba(6,182,212,.35);
+}
+
+button:hover {
+  transform: translateY(-1px);
+  opacity: 0.92;
+}
+
+.btn-secondary {
+  background: var(--abbey);
+}
+
+.btn-edit {
+  background: var(--green);
+}
+
+.btn-cancel {
+  background: var(--orange);
+}
+
+.btn-delete {
+  background: var(--red);
+}
+
+.oculto {
+  display: none;
+}
+
+.camiseta-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 460px;
+}
+
+#camisetaSvg{
+  filter:
+    drop-shadow(0 0 15px rgba(6,182,212,.5))
+    drop-shadow(0 0 40px rgba(6,182,212,.25));
+}
+.parte-camiseta {
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.parte-camiseta:hover {
+  opacity: 0.88;
+  stroke-width: 5;
+}
+
+.parte-activa{
+  stroke:#06b6d4;
+  stroke-width:8;
+}
+
+.lista-disenos {
+  grid-column: 1 / 3;
+}
+
+.tarjeta-camiseta{
+  background:#0f172a;
+  border:1px solid var(--border);
+  color:white;
+}
+
+.tarjeta-camiseta h3 {
+  font-size: 19px;
+  margin-bottom: 8px;
+}
+
+.tarjeta-camiseta p {
+  margin-bottom: 5px;
+  color: #374151;
+}
+
+.descripcion-card {
+  color: #6b7280;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.mini-camisa {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.color-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid rgba(17, 24, 39, 0.25);
+}
+
+.acciones-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.estrellas {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.estrellas button {
+  background: var(--orange);
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.acciones-crud {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.acciones-crud button {
+  padding: 9px 12px;
+  font-size: 12px;
+}
+
+.mensaje-vacio {
+  padding: 18px;
+  background: var(--soft);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  color: var(--abbey);
+}
+
+@media (max-width: 850px) {
+  .contenedor {
+    grid-template-columns: 1fr;
+  }
+
+  .lista-disenos {
+    grid-column: 1;
+  }
+
+  .tarjeta-camiseta {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  transition:.3s;
+}
+
+.contenedor{
+  gap:32px;
+}
+
+.section-title h2{
+  color:white;
+}
+
+.section-title p{
+  color:#94a3b8;
+}
+
+.barra-login {
+    width: 100%;
+    background: #1f2937;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.login-container input {
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    width: 220px;
+}
+
+.login-container button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#btnLogin {
+    background: #2563eb;
+    color: white;
+}
+
+#btnRegistro {
+    background: #10b981;
+    color: white;
+}
+
+#btnLogin:hover,
+#btnRegistro:hover {
+    opacity: 0.9;
+}
